@@ -6,38 +6,45 @@
 [ext_resource path="res://aseprite/cardbasehighlight1.png" type="Texture" id=4]
 [ext_resource path="res://aseprite/cardbasehighlight2.png" type="Texture" id=5]
 
-[node name="Card" type="Node"]
+[node name="Card" type="Control"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Button" type="TextureButton" parent="."]
-margin_left = -40.3713
-margin_top = -4.93339
-margin_right = 23.6287
-margin_bottom = 59.0666
+margin_left = -40.0
+margin_top = -5.0
+margin_right = -6.0
+margin_bottom = 43.0
 rect_scale = Vector2( 6.45346, 6.45346 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 5 )
+texture_disabled = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Icon" type="TextureRect" parent="Button"]
-margin_top = 0.764444
-margin_right = 62.665
-margin_bottom = 64.7644
+margin_top = 1.0
+margin_right = 34.0
+margin_bottom = 49.0
 texture = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Label" type="RichTextLabel" parent="."]
-margin_left = 94.0
-margin_top = 227.0
-margin_right = 272.0
-margin_bottom = 376.0
+margin_left = 5.35742
+margin_top = 172.182
+margin_right = 183.357
+margin_bottom = 321.182
+mouse_filter = 2
 custom_fonts/mono_font = ExtResource( 1 )
 custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0.984314, 0.94902, 0.211765, 1 )
+text = "Dirty
+Water"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false

@@ -8,9 +8,11 @@ extends Node2D
 signal Lose
 
 var health = 3
+var demonicCounter = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("plant")
 	pass # Replace with function body.
 
 func healBasic():
@@ -20,6 +22,7 @@ func healBasic():
 func healDemonic():
 	health +=2
 	health = clamp(health, 0, 5)
+	demonicCounter += 1
 	
 func takeDamage():
 	health -=1

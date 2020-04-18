@@ -13,15 +13,21 @@ _global_script_classes=[ {
 "class": "CardBase",
 "language": "GDScript",
 "path": "res://Scripts/CardBase.gd"
+}, {
+"base": "Node2D",
+"class": "CardChoice",
+"language": "GDScript",
+"path": "res://Scripts/CardChoice.gd"
 } ]
 _global_script_class_icons={
-"CardBase": ""
+"CardBase": "",
+"CardChoice": ""
 }
 
 [application]
 
 config/name="Ldjam 46"
-run/main_scene="res://Scenes/CardChoice.tscn"
+run/main_scene="res://Scenes/MainGame.tscn"
 config/icon="res://icon.png"
 
 [rendering]
