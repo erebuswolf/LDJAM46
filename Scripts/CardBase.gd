@@ -14,12 +14,12 @@ var TexturePath = "res://aseprite/Water.png"
 func _ready():
 	add_to_group("cards")
 	var texture1 = load(TexturePath)
-	($Button/Icon as TextureRect).texture = texture1
-	($Label as RichTextLabel).push_align(RichTextLabel.ALIGN_CENTER)
+	($Control/Button/Icon as TextureRect).texture = texture1
+	($Control/Label as RichTextLabel).push_align(RichTextLabel.ALIGN_CENTER)
 	label = "[center]"+label+"[/center]"
-	($Label as RichTextLabel).bbcode_text = label
-	$Button.connect("pressed", self, "_Effect")
-	$Button.connect("pressed", self, "_iterateEffect")
+	($Control/Label as RichTextLabel).bbcode_text = label
+	$Control/Button.connect("pressed", self, "_Effect")
+	$Control/Button.connect("pressed", self, "_iterateEffect")
 	pass # Replace with function body.
 
 func _Effect():
@@ -29,7 +29,8 @@ func _iterateEffect():
 	get_tree().call_group("plant", "iterateChoiceCounter")
 
 func disableAndMove():
-	$Button.disabled = true
+	$Control/Button.disabled = true
+	$Control/AnimationPlayer.play("RemoveCard")
 	
 	
 	

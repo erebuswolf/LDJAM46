@@ -33,7 +33,7 @@ func getRandomCards():
 
 func _addCard(card, script, offset):
 	card.set_script(script);
-	$Panel.add_child(card)
+	$Panel/Container.add_child(card)
 	card.rect_position = Vector2(offset, 60) 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

@@ -11,3 +11,15 @@ margin_bottom = 400.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Container" type="HBoxContainer" parent="Panel"]
+margin_top = 60.0
+margin_right = 718.568
+margin_bottom = 417.184
+grow_horizontal = 2
+grow_vertical = 2
+custom_constants/separation = 300
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
