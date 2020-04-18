@@ -7,8 +7,8 @@ extends CardBase
 
 
 func _init():
-	label = "Dirty\nWater"
-	TexturePath = "res://aseprite/DirtyWater.png"
+	label = "Sand"
+	TexturePath = "res://aseprite/Sand.png"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

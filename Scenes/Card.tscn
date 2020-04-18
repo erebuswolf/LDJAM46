@@ -12,10 +12,10 @@ __meta__ = {
 }
 
 [node name="Button" type="TextureButton" parent="."]
-margin_left = -40.0
-margin_top = -5.0
-margin_right = -6.0
-margin_bottom = 43.0
+margin_left = -41.3604
+margin_top = -3.63962
+margin_right = -7.36035
+margin_bottom = 44.3604
 rect_scale = Vector2( 6.45346, 6.45346 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 2 )
@@ -35,16 +35,24 @@ __meta__ = {
 }
 
 [node name="Label" type="RichTextLabel" parent="."]
-margin_left = 5.35742
-margin_top = 172.182
-margin_right = 183.357
-margin_bottom = 321.182
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = -85.3898
+margin_top = 169.523
+margin_right = 234.61
+margin_bottom = 446.523
+grow_horizontal = 2
 mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_fonts/mono_font = ExtResource( 1 )
 custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0.984314, 0.94902, 0.211765, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]Dirty
+water[/center]"
 text = "Dirty
-Water"
+water"
 scroll_active = false
 __meta__ = {
 "_edit_use_anchors_": false

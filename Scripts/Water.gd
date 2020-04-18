@@ -6,12 +6,13 @@ extends CardBase
 # var b = "text"
 
 
+func _init():
+	label = "Water"
+	TexturePath = "res://aseprite/Water.png"
+	
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	label = "Water"
-	TexturePath = "res://aseprite/Water.png"
-	._ready()
 	pass # Replace with function body.
 
 

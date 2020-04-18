@@ -5,15 +5,13 @@ extends CardBase
 # var a = 2
 # var b = "text"
 
-
+func _init():
+	label = "Blood"
+	TexturePath = "res://aseprite/Blood.png"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	label = "Blood"
-	TexturePath = "res://aseprite/Blood.png"
-	._ready()
 	pass # Replace with function body.
-
 
 func _Effect():
 	get_tree().call_group("plant", "healDemonic")

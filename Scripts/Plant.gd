@@ -23,9 +23,14 @@ func _ready():
 	add_to_group("plant")
 	pass # Replace with function body.
 
+func iterateChoiceCounter():
+	choicesMade += 1
+	get_tree().call_group("cards", "disableAndMove")
+	print(choicesMade)
+
 func healBasic():
 	if (health < 3):
-		health +=1
+		health += 1
 		
 func healDemonic():
 	health +=2
@@ -33,8 +38,8 @@ func healDemonic():
 	demonicCounter += 1
 	
 func takeDamage():
-	health -=1
-	if (health <=0):
+	health -= 1
+	if (health <= 0):
 		emit_signal("Lose")
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.

@@ -7,8 +7,8 @@ extends CardBase
 
 
 func _init():
-	label = "Dirty\nWater"
-	TexturePath = "res://aseprite/DirtyWater.png"
+	label = "Carcass"
+	TexturePath = "res://aseprite/DeadAnimals.png"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,7 +16,7 @@ func _ready():
 
 
 func _Effect():
-	get_tree().call_group("plant", "takeDamage")
+	get_tree().call_group("plant", "healDemonic")
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
