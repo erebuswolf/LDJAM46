@@ -8,14 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "CardBase",
+"language": "GDScript",
+"path": "res://Scripts/CardBase.gd"
+} ]
 _global_script_class_icons={
-
+"CardBase": ""
 }
 
 [application]
 
 config/name="Ldjam 46"
+run/main_scene="res://Scenes/CardChoice.tscn"
 config/icon="res://icon.png"
 
 [rendering]
