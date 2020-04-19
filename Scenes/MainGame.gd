@@ -15,6 +15,8 @@ var peopleFruitEaten = 0
 var rng = RandomNumberGenerator.new()
 var lastChoice = 0
 
+var choicesMade = 0
+
 var choice = preload("res://Scenes/CardChoice.tscn")
 var choiceScripts = [load ("res://Scripts/WaterChoice.gd"),
 	load ("res://Scripts/FertilizerChoice.gd"),
@@ -23,15 +25,28 @@ var choiceScripts = [load ("res://Scripts/WaterChoice.gd"),
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
-	SetNewChoice()
+	SetNewChoice(0)
+	add_to_group("main")
+	$PlantScene.connect("Lose", self, "loseLogic")
 	pass # Replace with function body.
 
-func SetNewChoice():
+func SetNewChoice(param:int):
 	var ch = choice.instance()
-	ch.set_script(choiceScripts[0])
+	ch.set_script(choiceScripts[param])
 	add_child(ch)
 	ch.position = Vector2(120,180)
 
+func GetNextChoice():
+	SetNewChoice(1)
+
+func iterateChoiceCounter():
+	choicesMade += 1
+	get_tree().call_group("cards", "disableAndMove")
+	print(choicesMade)
+	
+
+func loseLogic():
+	print ("you lost")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

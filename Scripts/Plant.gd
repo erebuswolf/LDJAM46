@@ -10,18 +10,10 @@ signal Lose
 var health = 3
 var demonicCounter = 0
 
-var choicesMade = 0
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("plant")
 	pass # Replace with function body.
-
-func iterateChoiceCounter():
-	choicesMade += 1
-	get_tree().call_group("cards", "disableAndMove")
-	print(choicesMade)
 
 func healBasic():
 	if (health < 3):

@@ -26,13 +26,11 @@ func _Effect():
 	pass
 	
 func _iterateEffect():
-	get_tree().call_group("plant", "iterateChoiceCounter")
+	get_tree().call_group("main", "iterateChoiceCounter")
 
 func disableAndMove():
 	$Control/Button.disabled = true
 	$Control/AnimationPlayer.play("RemoveCard")
-	
-	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

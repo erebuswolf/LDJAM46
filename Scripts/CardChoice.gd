@@ -25,7 +25,7 @@ func _ready():
 	pass # Replace with function body.
 	
 func getRandomCards():
-	var card1 = 0 #rng.randi_range(0,PossibleCards.size()-1)
+	var card1 = rng.randi_range(0,PossibleCards.size()-1)
 	var card2 = card1
 	while(card2 == card1):
 		card2 = rng.randi_range(0,PossibleCards.size()-1)
@@ -37,7 +37,25 @@ func getRandomCards():
 func _addCard(card, script, offset):
 	card.set_script(script);
 	$Panel/Container.add_child(card)
+	card.get_child(0).get_child(0).connect("pressed", self, "_cardPressed")
 	card.rect_position = Vector2(offset, 60) 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+func _cardPressed():
+	print("card pressed")
+	var timer = Timer.new()
+	$Panel/AnimationPlayer.play("SlideAway")
+	add_child(timer)
+	timer.wait_time = 1
+	timer.one_shot = true
+	timer.connect("timeout", self, "_onTimerTimeout")
+	timer.start()
+	pass
+
+func _onTimerTimeout():
+	print("timer hit")
+	
+	get_tree().call_group("main","GetNextChoice")
+	queue_free()
+	pass
