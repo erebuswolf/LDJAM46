@@ -4,6 +4,7 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+signal MouseClick
 
 var playerHealth = 3
 
@@ -20,7 +21,11 @@ var choicesMade = 0
 var choice = preload("res://Scenes/CardChoice.tscn")
 var choiceScripts = [load ("res://Scripts/WaterChoice.gd"),
 	load ("res://Scripts/FertilizerChoice.gd"),
-	load ("res://Scripts/DirtyWater.gd")]
+	load ("res://Scripts/EatChoice.gd")]
+	
+var eatPlantLines = ["The fruit is intoxicating. Your senses are delighfully heightened. Tingling, you are ready for the next day.",
+"You hear voices. Is it the plant? Dead loves ones? They cheer you on. The plant must be kept healthy and safe.",
+"The next day the Acolytes find your body. Your wrists are split open, but there is no blood. The plant looks well watered and very healthy."]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,6 +36,8 @@ func _ready():
 	pass # Replace with function body.
 
 func SetNewChoice(param:int):
+	lastChoice = param
+	yield(self,"MouseClick")
 	var ch = choice.instance()
 	ch.hide()
 	ch.set_script(choiceScripts[param])
@@ -38,13 +45,39 @@ func SetNewChoice(param:int):
 	ch.position = Vector2(120,160)
 
 func GetNextChoice():
-	SetNewChoice(1)
+	var thisChoice = lastChoice
+	while(thisChoice == lastChoice):
+		thisChoice = rng.randi_range(0,choiceScripts.size()-1)
+	SetNewChoice(thisChoice)
 
 func iterateChoiceCounter():
 	choicesMade += 1
 	get_tree().call_group("cards", "disableAndMove")
 	print(choicesMade)
 	
+func _process(delta):
+	pass
+		
+func _input(event):
+	if(event is InputEventMouseButton and event.is_pressed()):
+		emit_signal("MouseClick")
+		
+func EatFruit():
+	playerFruitEaten += 1
+	playerHealth = clamp(playerHealth + 1, 0,3)
+	get_tree().call_group("TopText","setString", eatPlantLines[clamp(playerFruitEaten-1,0,2)])
+	if(playerFruitEaten >= 3):
+		loseLogic()
+	
+func EatScraps():
+	playerHealth = clamp(playerHealth + 1, 0,3)
+	get_tree().call_group("TopText","setString", "The scraps will get you by...")
+	
+func Starve():
+	playerHealth -=1
+	get_tree().call_group("TopText","setString", "The hunger consumes you, but you carry on...")
+	if (playerHealth <= 0):
+		loseLogic()
 
 func loseLogic():
 	print ("you lost")
