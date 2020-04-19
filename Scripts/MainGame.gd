@@ -19,13 +19,13 @@ var lastChoice = 0
 var choicesMade = 0
 
 var choice = preload("res://Scenes/CardChoice.tscn")
-var choiceScripts = [load ("res://Scripts/WaterChoice.gd"),
-	load ("res://Scripts/FertilizerChoice.gd"),
-	load ("res://Scripts/EatChoice.gd")]
+var choiceScripts = [load ("res://Scripts/Choices/WaterChoice.gd"),
+	load ("res://Scripts/Choices/FertilizerChoice.gd"),
+	load ("res://Scripts/Choices/EatChoice.gd")]
 	
 var eatPlantLines = ["The fruit is intoxicating. Your senses are delighfully heightened. Tingling, you are ready for the next day.",
 "You hear voices. Is it the plant? Dead loves ones? They cheer you on. The plant must be kept healthy and safe.",
-"The next day the Acolytes find your body. Your wrists are split open, but there is no blood. The plant looks well watered and very healthy."]
+"The next day the Acolytes find your body. Your wrists are sliced open, but there is no blood. The plant looks well watered and very healthy."]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -75,7 +75,14 @@ func EatScraps():
 	
 func Starve():
 	playerHealth -=1
-	get_tree().call_group("TopText","setString", "The hunger consumes you, but you carry on...")
+	var topString = "The hunger consumes you, but you carry on..."
+	
+	if(playerHealth == 1):
+		topString = "The hunger is maddening. If you do not eat soon you will perish"
+		
+	get_tree().call_group("TopText","setString", topString)
+	
+	
 	if (playerHealth <= 0):
 		loseLogic()
 

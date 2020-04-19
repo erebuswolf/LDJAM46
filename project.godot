@@ -12,12 +12,12 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "CardBase",
 "language": "GDScript",
-"path": "res://Scripts/CardBase.gd"
+"path": "res://Scripts/Cards/CardBase.gd"
 }, {
 "base": "Node2D",
 "class": "CardChoice",
 "language": "GDScript",
-"path": "res://Scripts/CardChoice.gd"
+"path": "res://Scripts/Choices/CardChoice.gd"
 } ]
 _global_script_class_icons={
 "CardBase": "",

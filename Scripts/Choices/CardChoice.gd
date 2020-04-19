@@ -25,14 +25,24 @@ func _ready():
 	pass # Replace with function body.
 	
 func getRandomCards():
-	var card1 = rng.randi_range(0,PossibleCards.size()-1)
+		
+	var card1 = unevenRoll()
+	
 	var card2 = card1
 	while(card2 == card1):
-		card2 = rng.randi_range(0,PossibleCards.size()-1)
+		card2 = unevenRoll()
 	print ("cards",card1, card2)
 	_addCard(cardBase.instance(), PossibleCards[card1], 75)
 	_addCard(cardBase.instance(), PossibleCards[card2], 325 ) #575
 
+func unevenRoll():
+	var rand = rng.randf_range(0,100)
+	var pick = 2
+	if(rand < 10):
+		pick = 0
+	elif(rand < 55):
+		pick = 1
+	return pick
 
 func _addCard(card, script, offset):
 	card.set_script(script);
@@ -53,7 +63,6 @@ func _cardPressed():
 	pass
 
 func _onTimerTimeout():
-	
 	get_tree().call_group("main","GetNextChoice")
 	queue_free()
 	pass

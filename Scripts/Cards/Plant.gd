@@ -72,7 +72,7 @@ func takeDamage():
 
 func setTopString(param:int):
 	var TopString = TopStrings[clamp(param+1,0,4)]
-	if (health == 5):
+	if (health == 5 and param > 0):
 		TopString = TopStrings[4]
 	
 
