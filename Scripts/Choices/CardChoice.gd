@@ -20,11 +20,19 @@ func _init():
 func _ready():
 	DescriptiveText = "[center]"+DescriptiveText+"[/center]"
 	get_tree().call_group("TopText","setString", DescriptiveText)
+	var showTimer = Timer.new()
+	showTimer.wait_time = .1
+	showTimer.connect("timeout",self, "showAndStart")
+	showTimer.one_shot = true
+	add_child(showTimer)
 	$Panel/AnimationPlayer.play("SlideIn")
-	show()
+	showTimer.start()
 	pass # Replace with function body.
 	
-func getRandomCards():
+func showAndStart():
+	position = Vector2(120,160)
+	
+func getRandomCards(favored:bool):
 		
 	var card1 = unevenRoll()
 	
@@ -34,6 +42,8 @@ func getRandomCards():
 	print ("cards",card1, card2)
 	_addCard(cardBase.instance(), PossibleCards[card1], 75)
 	_addCard(cardBase.instance(), PossibleCards[card2], 325 ) #575
+	if (favored) :
+		_addCard(cardBase.instance(), PossibleCards[PossibleCards.size()-1], 575 )
 
 func unevenRoll():
 	var rand = rng.randf_range(0,100)
@@ -52,6 +62,7 @@ func _addCard(card, script, offset):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
 func _cardPressed():
 	var timer = Timer.new()
 	$Panel/AnimationPlayer.play("SlideAway")

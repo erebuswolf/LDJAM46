@@ -49,24 +49,25 @@ tracks/1/keys = {
 }
 
 [node name="Node2D" type="Node2D"]
+position = Vector2( 65.0493, 931.786 )
 script = ExtResource( 4 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 30.9451
-margin_top = 623.735
-margin_right = 830.945
-margin_bottom = 1073.73
+margin_left = 46.0365
+margin_top = -198.083
+margin_right = 846.036
+margin_bottom = 251.913
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Container" type="HBoxContainer" parent="Panel"]
 margin_top = 60.0
-margin_right = 718.568
-margin_bottom = 417.184
+margin_right = 796.0
+margin_bottom = 417.0
 grow_horizontal = 2
 grow_vertical = 2
-custom_constants/separation = 300
+custom_constants/separation = 250
 alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false

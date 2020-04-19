@@ -53,10 +53,10 @@ __meta__ = {
 }
 
 [node name="Button" type="TextureButton" parent="Control"]
-margin_left = -41.3604
-margin_top = -3.63962
-margin_right = -7.36035
-margin_bottom = 44.3604
+margin_left = -111.0
+margin_top = 3.0
+margin_right = -77.0001
+margin_bottom = 51.0
 rect_scale = Vector2( 6.45346, 6.45346 )
 texture_normal = ExtResource( 4 )
 texture_pressed = ExtResource( 2 )
@@ -75,10 +75,10 @@ __meta__ = {
 }
 
 [node name="Label" type="RichTextLabel" parent="Control"]
-margin_left = -85.3898
-margin_top = 160.523
-margin_right = 234.61
-margin_bottom = 437.523
+margin_left = -165.39
+margin_top = 163.523
+margin_right = 154.61
+margin_bottom = 440.523
 grow_horizontal = 2
 mouse_filter = 2
 size_flags_horizontal = 3

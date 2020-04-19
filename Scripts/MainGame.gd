@@ -39,10 +39,9 @@ func SetNewChoice(param:int):
 	lastChoice = param
 	yield(self,"MouseClick")
 	var ch = choice.instance()
-	ch.hide()
 	ch.set_script(choiceScripts[param])
+	ch.position = Vector2(1000,1000)
 	add_child(ch)
-	ch.position = Vector2(120,160)
 
 func GetNextChoice():
 	var thisChoice = lastChoice
