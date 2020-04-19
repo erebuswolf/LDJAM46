@@ -16,7 +16,7 @@ func _ready():
 
 
 func _Effect():
-	get_tree().call_group("plant", "takeDamage")
+	get_tree().call_group("plant", "healBasic")
 	pass
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.

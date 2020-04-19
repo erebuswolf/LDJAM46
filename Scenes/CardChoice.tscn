@@ -52,10 +52,10 @@ tracks/1/keys = {
 script = ExtResource( 4 )
 
 [node name="Panel" type="Panel" parent="."]
-margin_left = 61.575
-margin_top = 516.942
-margin_right = 861.575
-margin_bottom = 916.942
+margin_left = 30.9451
+margin_top = 623.735
+margin_right = 830.945
+margin_bottom = 1073.73
 __meta__ = {
 "_edit_use_anchors_": false
 }

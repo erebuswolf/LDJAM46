@@ -35,7 +35,7 @@ func SetNewChoice(param:int):
 	ch.hide()
 	ch.set_script(choiceScripts[param])
 	add_child(ch)
-	ch.position = Vector2(120,180)
+	ch.position = Vector2(120,160)
 
 func GetNextChoice():
 	SetNewChoice(1)

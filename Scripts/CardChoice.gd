@@ -15,7 +15,6 @@ enum Choices {WaterChoice, FertilizerChoice, EatingChoice, OfferingChoice}
 
 func _init():
 	rng.randomize()
-	print("init")
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -23,7 +22,6 @@ func _ready():
 	get_tree().call_group("TopText","setString", DescriptiveText)
 	$Panel/AnimationPlayer.play("SlideIn")
 	show()
-	print ("added to scene...")
 	pass # Replace with function body.
 	
 func getRandomCards():
@@ -45,7 +43,6 @@ func _addCard(card, script, offset):
 #func _process(delta):
 #	pass
 func _cardPressed():
-	print("card pressed")
 	var timer = Timer.new()
 	$Panel/AnimationPlayer.play("SlideAway")
 	add_child(timer)
@@ -56,7 +53,6 @@ func _cardPressed():
 	pass
 
 func _onTimerTimeout():
-	print("timer hit")
 	
 	get_tree().call_group("main","GetNextChoice")
 	queue_free()
