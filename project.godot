@@ -18,10 +18,22 @@ _global_script_classes=[ {
 "class": "CardChoice",
 "language": "GDScript",
 "path": "res://Scripts/Choices/CardChoice.gd"
+}, {
+"base": "Node",
+"class": "Factions",
+"language": "GDScript",
+"path": "res://Scripts/Factions.gd"
+}, {
+"base": "Node2D",
+"class": "MainGame",
+"language": "GDScript",
+"path": "res://Scripts/MainGame.gd"
 } ]
 _global_script_class_icons={
 "CardBase": "",
-"CardChoice": ""
+"CardChoice": "",
+"Factions": "",
+"MainGame": ""
 }
 
 [application]

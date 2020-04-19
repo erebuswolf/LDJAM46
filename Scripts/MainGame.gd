@@ -1,6 +1,6 @@
 extends Node2D
 
-
+class_name MainGame
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -9,9 +9,11 @@ signal MouseClick
 var playerHealth = 3
 
 var playerFruitEaten = 0
-var kingFruitEaten = 0
-var churchFruitEaten = 0
-var peopleFruitEaten = 0
+
+
+var favor = [false, false, false]
+
+var fruitCount = [0,0,0]
 
 var rng = RandomNumberGenerator.new()
 var lastChoice = 0
@@ -21,7 +23,8 @@ var choicesMade = 0
 var choice = preload("res://Scenes/CardChoice.tscn")
 var choiceScripts = [load ("res://Scripts/Choices/WaterChoice.gd"),
 	load ("res://Scripts/Choices/FertilizerChoice.gd"),
-	load ("res://Scripts/Choices/EatChoice.gd")]
+	load ("res://Scripts/Choices/EatChoice.gd"),
+	load ("res://Scripts/Choices/FruitChoice.gd")]
 	
 var eatPlantLines = ["The fruit is intoxicating. Your senses are delighfully heightened. Tingling, you are ready for the next day.",
 "You hear voices. Is it the plant? Dead loves ones? They cheer you on. The plant must be kept healthy and safe.",
@@ -47,7 +50,7 @@ func GetNextChoice():
 	var thisChoice = lastChoice
 	while(thisChoice == lastChoice):
 		thisChoice = rng.randi_range(0,choiceScripts.size()-1)
-	SetNewChoice(thisChoice)
+	SetNewChoice(3)
 
 func iterateChoiceCounter():
 	choicesMade += 1
@@ -87,6 +90,17 @@ func Starve():
 
 func loseLogic():
 	print ("you lost")
+	
+func spendFavor(faction):
+	favor[faction] = false
+
+func offeredFruit(faction):
+	fruitCount[faction] += fruitCount[faction]
+	favor[faction] = true
+	if(fruitCount[faction] >= 3):
+		#lose game
+		pass
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
