@@ -6,8 +6,8 @@ extends CardBase
 # var b = "text"
 
 func _init():
-	label = "Water\nfrom\nChurch"
-	TexturePath = "res://aseprite/Water.png"
+	label = "Feast\nwith the\nKing"
+	TexturePath = "res://aseprite/Feast.png"
 	
 
 # Called when the node enters the scene tree for the first time.
@@ -16,9 +16,7 @@ func _ready():
 
 
 func _Effect():
-	get_tree().call_group("plant", "healBasic")
-	get_tree().call_group("main", "spendFavor", Factions.Faction.Church)
-	pass
+	get_tree().call_group("main", "Feast")
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

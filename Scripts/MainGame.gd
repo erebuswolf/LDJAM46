@@ -10,7 +10,6 @@ var playerHealth = 3
 
 var playerFruitEaten = 0
 
-
 var favor = [false, false, false]
 
 var fruitCount = [0,0,0]
@@ -50,7 +49,7 @@ func GetNextChoice():
 	var thisChoice = lastChoice
 	while(thisChoice == lastChoice):
 		thisChoice = rng.randi_range(0,choiceScripts.size()-1)
-	SetNewChoice(3)
+	SetNewChoice(thisChoice)
 
 func iterateChoiceCounter():
 	choicesMade += 1
@@ -93,6 +92,13 @@ func loseLogic():
 	
 func spendFavor(faction):
 	favor[faction] = false
+	
+func Feast():
+	spendFavor(Factions.Faction.King)
+	var topString = "The libations are overflowing. You are blessed to have curried the kings favor. You wake drunk, and sated"
+	
+	playerHealth = clamp(playerHealth + 2, 0,3)
+	get_tree().call_group("TopText","setString", topString)
 
 func offeredFruit(faction):
 	fruitCount[faction] += fruitCount[faction]
