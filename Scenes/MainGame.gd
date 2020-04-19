@@ -32,6 +32,7 @@ func _ready():
 
 func SetNewChoice(param:int):
 	var ch = choice.instance()
+	ch.hide()
 	ch.set_script(choiceScripts[param])
 	add_child(ch)
 	ch.position = Vector2(120,180)

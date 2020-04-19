@@ -21,6 +21,8 @@ func _init():
 func _ready():
 	DescriptiveText = "[center]"+DescriptiveText+"[/center]"
 	get_tree().call_group("TopText","setString", DescriptiveText)
+	$Panel/AnimationPlayer.play("SlideIn")
+	show()
 	print ("added to scene...")
 	pass # Replace with function body.
 	
