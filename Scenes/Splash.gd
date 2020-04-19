@@ -1,4 +1,4 @@
-extends Panel
+extends Node2D
 
 
 # Declare member variables here. Examples:
@@ -8,18 +8,12 @@ extends Panel
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	add_to_group("TopPanel")
+	$Timer.connect("timeout",self,"nextScene")
+	$Panel/Sprite/AnimationPlayer.play("FadeIn and OUt")
 	pass # Replace with function body.
 
-func setLargeSize():
-	rect_size = Vector2(800,250)
-
-func setStartSize():
-	rect_size = Vector2(800,120)
-	
-func setHeight(Height):
-	rect_size = Vector2(800, Height)
-
+func nextScene():
+	get_tree().change_scene("res://Scenes/MainGame.tscn")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

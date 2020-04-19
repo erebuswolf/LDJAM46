@@ -38,9 +38,11 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Ldjam 46"
-run/main_scene="res://Scenes/MainGame.tscn"
-config/icon="res://icon.png"
+config/name="Otherworldy Flavors"
+run/main_scene="res://Scenes/Splash.tscn"
+boot_splash/image="res://aseprite/ffg banner.png"
+boot_splash/bg_color=Color( 0.0666667, 0.152941, 0.411765, 1 )
+config/icon="res://aseprite/fruiticon.png"
 
 [display]
 

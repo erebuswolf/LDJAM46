@@ -43,12 +43,14 @@ var factionEatLines = [["The Priest claims the fruit brings the clergy closer to
 "The church has declared the plant to be holy in origin, a miracle... which they must protect. They ransacked your encampment and took it in the night. They left no survivors."],
 ["The strange and delectable fruit is the talk of the court. You have won the favor of the king, for now.",
 "The King enjoys the fruit alone in his chambers. Strange sounds echo through the castle halls all night. You have won the favor of the king, for now.",
-"The King is dead. His mouth dripped with the juices of the fruit as he screamed. The royal alchemist claims it was a madness brought on by poison. The royal guard comes for you in the morning. You are executed for regicide."],
+"The King is dead. His mouth dripped with the juices of the fruit as he slammed his head into a wall screaming words no one can bring themselves to repeat. The royal alchemist claims it was a madness brought on by poison. The royal guard comes for you in the morning. You are executed for regicide."],
 ["The townsfolk enjoy this new fruit. None can agree what it tastes like. They agree to a small delivery of manure to you if you need.",
 "No one speaks of last night. The intoxication of the fruit lead to unspeakable debauchery. The townsfolk want more. They agree to a small delivery of manure to you if you need. ",
 "Half the town is dead. What started as an orgy ended as a sacrifice. The survivors look distrustfully at you with hollow eyes. The plant is gone. You aren’t sure where they are hiding it, but you fear if you do not leave today, you will not survive to the next dawn."]]
 
-var FactionEatHeights = [[120,240,200],[120,200,240],[120,200,240]]
+var endingText = "Your master has returned! You greet him with tears in your eyes. He is very pleased to see the plant is still alive. He says your initiation will begin soon. But, for now he is moving the plant to a new location to keep it from prying eyes."
+
+var FactionEatHeights = [[120,240,200],[120,200,280],[120,200,240]]
 
 
 # Called when the node enters the scene tree for the first time.
@@ -85,9 +87,15 @@ func GetNextChoice():
 	if (lost):
 		SetNewChoice(4)
 		return
+	
+	if (choicesMade >= 30):
+		yield(self,"MouseClick")
+		get_tree().call_group("TopPanel","setHeight",240)
+		get_tree().call_group("TopText","setString", endingText)
+		SetNewChoice(4)
+		return
 		
 	var thisChoice = lastChoice
-	print("turns since fruit ",turnsSinceFruit)
 	if ($PlantScene.demonicCounter >= 2):
 		if($PlantScene.health == 3 && turnsSinceFruit >2):
 			thisChoice = 3
@@ -96,7 +104,6 @@ func GetNextChoice():
 			$PlantScene.wasGivenDemonFood = false
 			
 	if (thisChoice == lastChoice):
-		print("rolled random choice")
 		while(thisChoice == lastChoice):
 			thisChoice = unevenRoll()
 			
@@ -144,7 +151,6 @@ func Starve():
 		loseLogic()
 
 func loseLogic():
-	print ("you lost")
 	get_tree().call_group("TopText","setLargeSize")
 	lost = true
 	

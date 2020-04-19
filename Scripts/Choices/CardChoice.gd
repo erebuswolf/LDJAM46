@@ -41,7 +41,6 @@ func getRandomCards(favored:bool):
 	var card2 = card1
 	while(card2 == card1):
 		card2 = unevenRoll()
-	print ("cards",card1, card2)
 	_addCard(cardBase.instance(), PossibleCards[card1], 75)
 	_addCard(cardBase.instance(), PossibleCards[card2], 325 ) #575
 	if (favored) :
