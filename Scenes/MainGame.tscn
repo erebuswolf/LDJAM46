@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Plant.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/CardChoice.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/TopText.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/MainGame.gd" type="Script" id=4]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource( 4 )
 
 [node name="PlantScene" parent="." instance=ExtResource( 1 )]
-position = Vector2( 418.72, 61.8166 )
+position = Vector2( 494.615, 154.895 )
 
-[node name="CardChoice" parent="." instance=ExtResource( 2 )]
-position = Vector2( 124.473, 199.404 )
+[node name="TopText" parent="." instance=ExtResource( 3 )]
+position = Vector2( 120, 10 )

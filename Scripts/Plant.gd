@@ -9,14 +9,9 @@ signal Lose
 
 var health = 3
 var demonicCounter = 0
-var playerHealth = 3
-
-var playerFruitEaten = 0
-var kingFruitEaten = 0
-var churchFruitEaten = 0
-var peopleFruitEaten = 0
 
 var choicesMade = 0
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

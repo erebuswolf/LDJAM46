@@ -19,10 +19,13 @@ func _init():
 	
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	DescriptiveText = "[center]"+DescriptiveText+"[/center]"
+	get_tree().call_group("TopText","setString", DescriptiveText)
+	print ("added to scene...")
 	pass # Replace with function body.
 	
 func getRandomCards():
-	var card1 = rng.randi_range(0,PossibleCards.size()-1)
+	var card1 = 0 #rng.randi_range(0,PossibleCards.size()-1)
 	var card2 = card1
 	while(card2 == card1):
 		card2 = rng.randi_range(0,PossibleCards.size()-1)

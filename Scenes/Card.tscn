@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://dynamicfont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://aseprite/cardbasehighlight3.png" type="Texture" id=2]
 [ext_resource path="res://aseprite/DirtyWater.png" type="Texture" id=3]
 [ext_resource path="res://aseprite/cardbasehighlight1.png" type="Texture" id=4]
 [ext_resource path="res://aseprite/cardbasehighlight2.png" type="Texture" id=5]
+[ext_resource path="res://hardpixel.tres" type="DynamicFont" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "RemoveCard"
@@ -74,17 +75,15 @@ __meta__ = {
 }
 
 [node name="Label" type="RichTextLabel" parent="Control"]
-anchor_top = 0.5
-anchor_bottom = 0.5
 margin_left = -85.3898
-margin_top = 149.523
+margin_top = 160.523
 margin_right = 234.61
-margin_bottom = 426.523
+margin_bottom = 437.523
 grow_horizontal = 2
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/mono_font = ExtResource( 1 )
+custom_fonts/mono_font = ExtResource( 6 )
 custom_fonts/normal_font = ExtResource( 1 )
 custom_colors/default_color = Color( 0.984314, 0.94902, 0.211765, 1 )
 bbcode_enabled = true

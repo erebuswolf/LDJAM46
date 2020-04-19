@@ -4,16 +4,17 @@ extends CardChoice
 # var a = 2
 # var b = "text"
 
+func _init():
+	DescriptiveText = "The plant needs water.\nThis is all we could find..."
+	PossibleCards = [load ("res://Scripts/Water.gd"),
+	load ("res://Scripts/Blood.gd"),
+	load ("res://Scripts/DirtyWater.gd")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	DescriptiveText = "The plant needs water. This is all we could find..."
-	PossibleCards = [load ("res://Scripts/Water.gd")
-	,load ("res://Scripts/Blood.gd"),
-	load ("res://Scripts/DirtyWater.gd")]
 	getRandomCards()
 	pass # Replace with function body.
-
+	
 	
 
 	

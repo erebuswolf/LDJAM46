@@ -1,26 +1,21 @@
-extends CardBase
+extends RichTextLabel
 
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
-class_name WaterCard
-
-func _init():
-	label = "Water"
-	TexturePath = "res://aseprite/Water.png"
-	
+var myText : String
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	add_to_group("TopText")
 	pass # Replace with function body.
 
+func setString(param: String):
+	myText = param
+	bbcode_text = myText;
 
-func _Effect():
-	get_tree().call_group("plant", "healBasic")
-	pass
-	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

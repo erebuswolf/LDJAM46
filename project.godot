@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "CardChoice",
 "language": "GDScript",
 "path": "res://Scripts/CardChoice.gd"
+}, {
+"base": "CardBase",
+"class": "WaterCard",
+"language": "GDScript",
+"path": "res://Scripts/Water.gd"
 } ]
 _global_script_class_icons={
 "CardBase": "",
-"CardChoice": ""
+"CardChoice": "",
+"WaterCard": ""
 }
 
 [application]
