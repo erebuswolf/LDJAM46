@@ -7,20 +7,21 @@ extends Node2D
 
 signal Lose
 
-var health = 3
+var health = 2
 var demonicCounter = 0
+
+var wasGivenDemonFood = false
+
 var backgrounds = ["323c39","45283c","000000"]
 var textures = [load("res://aseprite/Plant1.png"),
 	load("res://aseprite/Plant2.png"),
 	load("res://aseprite/Plant3.png"),
-	load("res://aseprite/Plant4.png"),
 	load("res://aseprite/Plant5.png"),
 	load("res://aseprite/Plant6.png")]
 	
 var BottomStrings = ["The plant is Dead. Your master will likely kill you.",
 	"The plant is on death's door!",
 	"The plant is wilting",
-	"The plant looks healthy",
 	"You are uncomfortable looking at the plant",
 	"The plant hurts your head to look at"]
 	
@@ -39,7 +40,7 @@ func _ready():
 
 func healBasic():
 	var healAmnt = 0;
-	if (health < 3):
+	if (health < 2):
 		health += 1
 		healAmnt = 1
 	
@@ -48,15 +49,17 @@ func healBasic():
 	
 func healDemonic():
 	var healAmnt = 0
-	if (health < 3):
+	if (health < 2):
 		health +=2
 		healAmnt = 2
 	else:
 		healAmnt = 1
 		health += 1
 	
-	health = clamp(health, 0, 5)
+	health = clamp(health, 0, 4)
 	demonicCounter += 1
+	
+	wasGivenDemonFood = true
 	
 	setTopString(healAmnt)
 	setPlantAndBackground()
@@ -69,19 +72,20 @@ func takeDamage():
 	setTopString(-1)
 	setPlantAndBackground()
 	
-
 func setTopString(param:int):
 	var TopString = TopStrings[clamp(param+1,0,4)]
 	if (health >=4 and param > 0 and param < 2):
 		TopString = TopStrings[4]
-	
 
 	var BottomString = BottomStrings[clamp(health,0,5)]
 	
-	get_tree().call_group("TopText","setString", TopString + "\n"+BottomString)
+	if (health ==0):
+		get_tree().call_group("TopText","setString",BottomString)
+	else:
+		get_tree().call_group("TopText","setString", TopString + "\n"+BottomString)
 
 func setPlantAndBackground():
-	VisualServer.set_default_clear_color(Color(backgrounds[clamp(abs(health-3),0,2)]))
+	VisualServer.set_default_clear_color(Color(backgrounds[clamp(abs(health-2),0,3)]))
 	$Sprite.texture = textures[clamp(health,0,5)]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

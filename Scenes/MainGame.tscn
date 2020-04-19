@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Plant.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/DayCounter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/TopText.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/MainGame.gd" type="Script" id=4]
 
@@ -12,3 +13,6 @@ position = Vector2( 498.91, 280.908 )
 
 [node name="TopText" parent="." instance=ExtResource( 3 )]
 position = Vector2( 120, 10 )
+
+[node name="Node2D" parent="." instance=ExtResource( 2 )]
+position = Vector2( 940.311, 516.149 )

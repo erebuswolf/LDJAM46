@@ -20,6 +20,8 @@ func _init():
 func _ready():
 	DescriptiveText = "[center]"+DescriptiveText+"[/center]"
 	get_tree().call_group("TopText","setString", DescriptiveText)
+	
+	get_tree().call_group("TopPanel","setStartSize")
 	var showTimer = Timer.new()
 	showTimer.wait_time = .1
 	showTimer.connect("timeout",self, "showAndStart")
