@@ -12,7 +12,7 @@ var demonicCounter = 0
 
 var wasGivenDemonFood = false
 
-var backgrounds = ["323c39","45283c","000000"]
+var backgrounds = ["323c39","222034","000000","45283c"]
 var textures = [load("res://aseprite/Plant1.png"),
 	load("res://aseprite/Plant2.png"),
 	load("res://aseprite/Plant3.png"),
@@ -85,7 +85,11 @@ func setTopString(param:int):
 		get_tree().call_group("TopText","setString", TopString + "\n"+BottomString)
 
 func setPlantAndBackground():
-	VisualServer.set_default_clear_color(Color(backgrounds[clamp(abs(health-2),0,3)]))
+	var c = Color(backgrounds[clamp(abs(health-2),0,2)])
+	if(health == 3):
+		 c = Color(backgrounds[3])
+	
+	VisualServer.set_default_clear_color(c)
 	$Sprite.texture = textures[clamp(health,0,5)]
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

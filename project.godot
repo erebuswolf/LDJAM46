@@ -40,9 +40,10 @@ _global_script_class_icons={
 
 config/name="Otherworldy Flavors"
 run/main_scene="res://Scenes/Splash.tscn"
-boot_splash/image="res://aseprite/ffg banner.png"
+boot_splash/image="aseprite/ffg banner.png"
 boot_splash/bg_color=Color( 0.0666667, 0.152941, 0.411765, 1 )
-config/icon="res://aseprite/fruiticon.png"
+config/icon="res://Icon.png"
+config/windows_native_icon="res://aseprite/fruiticon.ico"
 
 [display]
 
