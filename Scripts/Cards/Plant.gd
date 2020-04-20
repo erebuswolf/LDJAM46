@@ -13,11 +13,11 @@ var demonicCounter = 0
 var wasGivenDemonFood = false
 
 var backgrounds = ["323c39","222034","000000","45283c"]
-var textures = [load("res://aseprite/Plant1.png"),
-	load("res://aseprite/Plant2.png"),
-	load("res://aseprite/Plant3.png"),
-	load("res://aseprite/Plant5.png"),
-	load("res://aseprite/Plant6.png")]
+var textures = [load("res://aseprite/plant1.png"),
+	load("res://aseprite/plant2.png"),
+	load("res://aseprite/plant3.png"),
+	load("res://aseprite/plant5.png"),
+	load("res://aseprite/plant6.png")]
 	
 var BottomStrings = ["The plant is Dead. Your master will likely kill you.",
 	"The plant is on death's door!",
